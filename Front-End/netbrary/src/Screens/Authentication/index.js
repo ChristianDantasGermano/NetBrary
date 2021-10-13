@@ -1,24 +1,6 @@
 import "./styles.css";
-
-import {
-  Grid,
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Typography,
-  TextField,
-} from "@material-ui/core";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+import { Link } from "react-router-dom";
+import { Grid, Card, CardContent, Button, Typography } from "@material-ui/core";
 
 const Authentication = () => {
   return (
@@ -56,6 +38,8 @@ const Authentication = () => {
                 >
                   <Grid item>
                     <Button
+                      component={Link}
+                      to={"/logon"}
                       style={{ "min-width": "150px" }}
                       size="large"
                       variant="contained"
@@ -65,6 +49,8 @@ const Authentication = () => {
                   </Grid>
                   <Grid item>
                     <Button
+                      component={Link}
+                      to={"/register"}
                       style={{ "min-width": "150px" }}
                       size="large"
                       variant="outlined"
