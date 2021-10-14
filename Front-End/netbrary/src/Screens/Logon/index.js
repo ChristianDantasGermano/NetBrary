@@ -54,7 +54,7 @@ const Logon = () => {
               </Grid>
             </Box>
             <Box mx={6} my={4}>
-              <Button component={Link} to={"/register"}variant="contained" fullWidth>
+              <Button component={Link} to={"/"}variant="contained" fullWidth>
                 Logar
               </Button>
             </Box>

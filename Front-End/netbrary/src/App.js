@@ -1,4 +1,5 @@
 import "./App.css";
+import 'date-fns';
 import Routes from "./Router";
 
 import "@fontsource/roboto/300.css";
