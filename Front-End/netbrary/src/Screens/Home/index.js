@@ -1,22 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PersistentDrawerLeft from "../../Components/Navbar/navbar";
 
-const Home = () =>{
+const Home = () => {
   return (
     <div>
-      <h1>Tela Principal</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/logon">Logon</Link>
-          </li>
-          <li>
-            <Link to="/register">Cadastro</Link>
-          </li>
-        </ul>
-      </nav>
+      <PersistentDrawerLeft />
     </div>
   );
-}
+};
 
 export default Home;
