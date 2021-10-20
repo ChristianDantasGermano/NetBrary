@@ -1,10 +1,10 @@
 import React from "react";
-import PersistentDrawerLeft from "../../Components/Navbar/navbar";
+import PrimarySearchAppBar from "../../Components/Navbar/navbar";
 
 const Home = () => {
   return (
     <div>
-      <PersistentDrawerLeft />
+      <PrimarySearchAppBar />
     </div>
   );
 };
