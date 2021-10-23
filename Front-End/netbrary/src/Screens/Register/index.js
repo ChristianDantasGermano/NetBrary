@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
-import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
-import DesktopDatePicker from "@material-ui/lab/DesktopDatePicker";
+import DateFnsUtils from "@date-io/date-fns";
+import { ptBR } from "date-fns/locale";
+
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 
 import {
   Grid,
@@ -18,21 +19,33 @@ import {
   InputAdornment,
   IconButton,
   Input,
+  makeStyles,
 } from "@material-ui/core";
 
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 
-const Register = () => {
+const useStyles = makeStyles({
+  root: {
+    minWidth: 450,
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
+  },
+  title: {
+    textAlign: "center",
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
+const RegisterBooks = () => {
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
   });
-
-  const [date, setDate] = React.useState(new Date());
-
-  const handleChangeDate = (newDate) => {
-    setDate(newDate);
-  };
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -49,6 +62,9 @@ const Register = () => {
     event.preventDefault();
   };
 
+  const [selectedDate, handleDateChange] = React.useState(new Date());
+  const classes = useStyles();
+
   return (
     <Grid
       container
@@ -59,9 +75,12 @@ const Register = () => {
       style={{ minHeight: "100vh" }}
     >
       <Grid item xs={3}>
-        <Card sx={{ minWidth: 500 }}>
+        <Card className={classes.root}>
           <CardContent>
-            <Typography sx={{ textAlign: "center" }} variant="h2">
+            <Typography
+              className={classes.title}
+              variant="h2"
+            >
               Cadastro
             </Typography>
             <Box mx={4} mt={1}>
@@ -89,17 +108,18 @@ const Register = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DesktopDatePicker
+                  <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBR}>
+                    <DatePicker
+                      disableFuture
+                      openTo="year"
+                      format="dd/MM/yyyy"
                       label="Data de nascimento"
-                      inputFormat="dd/MM/yyyy"
-                      value={date}
-                      onChange={handleChangeDate}
-                      renderInput={(params) => (
-                        <TextField variant="standard" {...params} fullWidth />
-                      )}
+                      views={["month", "year", "date"]}
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                      fullWidth
                     />
-                  </LocalizationProvider>
+                  </MuiPickersUtilsProvider>
                 </Grid>
                 <Grid item>
                   <TextField
@@ -140,7 +160,13 @@ const Register = () => {
               </Grid>
             </Box>
             <Box mx={6} my={4}>
-              <Button component={Link} to={"/"} variant="contained" fullWidth>
+              <Button
+                variant="contained"
+                color="primary"
+                component={Link}
+                to={"/"}
+                fullWidth
+              >
                 Cadastrar
               </Button>
             </Box>
@@ -150,4 +176,4 @@ const Register = () => {
     </Grid>
   );
 };
-export default Register;
+export default RegisterBooks;
