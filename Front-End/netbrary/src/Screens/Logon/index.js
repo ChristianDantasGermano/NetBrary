@@ -9,9 +9,22 @@ import {
   Button,
   Typography,
   TextField,
+  makeStyles,
 } from "@material-ui/core";
 
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 400,
+  },
+  title: {
+    textAlign: "center",
+  },
+});
+
 const Logon = () => {
+  const classes = useStyles();
+
   return (
     <Grid
       container
@@ -21,10 +34,10 @@ const Logon = () => {
       justifyContent="center"
       style={{ minHeight: "100vh" }}
     >
-      <Grid item xs={3}>
-        <Card sx={{ minWidth: 500 }}>
+      <Grid item >
+        <Card className={classes.root} >
           <CardContent>
-            <Typography sx={{ textAlign: "center" }} variant="h2">
+            <Typography className={classes.title} variant="h2">
               Login
             </Typography>
             <Box mx={4}>
@@ -54,7 +67,13 @@ const Logon = () => {
               </Grid>
             </Box>
             <Box mx={6} my={4}>
-              <Button component={Link} to={"/"}variant="contained" fullWidth>
+              <Button
+                component={Link}
+                to={"/"}
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
                 Logar
               </Button>
             </Box>
