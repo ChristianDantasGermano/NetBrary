@@ -15,6 +15,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -199,7 +200,7 @@ export default function NavbarAdmin() {
                   Gerência
                 </Button>
                 <Menu {...bindMenu(popupState)}>
-                  <MenuItem onClick={popupState.close}>Livros</MenuItem>
+                  <MenuItem component={Link} to={"/admin"} >Livros</MenuItem>
                   <MenuItem onClick={popupState.close}>Usuários</MenuItem>
                 </Menu>
               </React.Fragment>
