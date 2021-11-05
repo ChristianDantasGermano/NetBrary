@@ -15,6 +15,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -199,8 +200,12 @@ export default function NavBar() {
                   Livros
                 </Button>
                 <Menu {...bindMenu(popupState)}>
-                  <MenuItem onClick={popupState.close}>Meus Livros</MenuItem>
-                  <MenuItem onClick={popupState.close}>Biblioteca</MenuItem>
+                  <MenuItem component={Link} to={"/myBooks"}>
+                    Meus Livros
+                  </MenuItem>
+                  <MenuItem component={Link} to={"/"}>
+                    Biblioteca
+                  </MenuItem>
                 </Menu>
               </React.Fragment>
             )}
@@ -208,7 +213,7 @@ export default function NavBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Typography className={classes.title} variant="h6" noWrap>
-              Livros em Posse: 2
+              Livros em Posse: 2/3
             </Typography>
             <PopupState variant="popover" popupId="demo-popup-menu">
               {(popupState) => (
@@ -224,8 +229,8 @@ export default function NavBar() {
                     <AccountCircle />
                   </IconButton>
                   <Menu {...bindMenu(popupState)}>
-                    <MenuItem onClick={popupState.close}>Minha Conta</MenuItem>
-                    <MenuItem onClick={popupState.close}>Sair</MenuItem>
+                    <MenuItem component={Link} to={"/profile"}>Minha Conta</MenuItem>
+                    <MenuItem component={Link} to={"/logon"}>Sair</MenuItem>
                   </Menu>
                 </React.Fragment>
               )}
