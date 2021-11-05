@@ -13,6 +13,7 @@ import { Box, Button, Typography } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { Link } from "react-router-dom";
 
 const columns = [
   { id: "title", label: "Título", minWidth: 170 },
@@ -189,7 +190,7 @@ export default function Books() {
           <Typography className={classes.title} variant="h2">
             Livros
           </Typography>
-          <Button variant="contained" color="primary">
+          <Button component={Link} to={"/registerBooks"} variant="contained" color="primary">
             Adicionar novo Livro
           </Button>
         </Box>

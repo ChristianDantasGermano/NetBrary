@@ -8,6 +8,7 @@ import Logon from "./Screens/Logon/index";
 import Profile from "./Screens/Profile";
 import RegisterBooks from "./Screens/Admin/Pages/Books/RegisterBooks";
 import Register from "./Screens/Register";
+import MyBooks from "./Screens/MyBooks";
 
 
 const Routes = () => {
@@ -20,8 +21,8 @@ const Routes = () => {
            <Route component = { Profile }  path= "/profile"/>
            <Route component = { AdminHome }  path= "/admin"/>
            <Route component = { RegisterBooks }  path= "/registerBooks"/>
+           <Route component = { MyBooks }  path= "/myBooks"/>
        </BrowserRouter>
    )
 }
-
 export default Routes;

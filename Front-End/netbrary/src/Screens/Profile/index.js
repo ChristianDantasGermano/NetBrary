@@ -78,7 +78,7 @@ const Profile = () => {
                     Status da Conta: 
                   </Typography>
                   <Typography  display="inline" className={classes.title} variant="body1" gutterBottom>
-                    {" "}Ativado
+                    {" "}Ativa
                   </Typography>
                 </Box>
               </Box>
